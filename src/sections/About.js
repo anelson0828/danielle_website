@@ -11,7 +11,7 @@ import markdownRenderer from '../components/MarkdownRenderer';
 const Background = () => (
   <div>
     <Triangle
-      color="secondaryLight"
+      color="secondary"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertY
@@ -26,7 +26,7 @@ const Background = () => (
 
     <Triangle
       color="backgroundDark"
-      height={['25vh', '20vh']}
+      height={['10vh', '15vh']}
       width={['100vw', '100vw']}
     />
   </div>
@@ -43,7 +43,7 @@ const ProfilePicture = styled(Image)`
 
 const About = () => (
   <Section.Container id="about" Background={Background}>
-    <Section.Header name="About me" icon="🙋‍♂️" label="person" />
+    <Section.Header name="About me" label="person" />
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
@@ -66,7 +66,7 @@ const About = () => (
         const { aboutMe, profile } = data.contentfulAbout;
         return (
           <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
+            <Box width={[1, 1, 4 / 6]}>
               <Fade bottom>
                 <ReactMarkdown
                   source={aboutMe.childMarkdownRemark.rawMarkdownBody}
@@ -83,7 +83,6 @@ const About = () => (
                 <ProfilePicture
                   src={profile.image.src}
                   alt={profile.title}
-                  mt={[4, 4, 0]}
                   ml={[0, 0, 1]}
                 />
               </Fade>

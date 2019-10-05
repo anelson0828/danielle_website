@@ -18,7 +18,6 @@ const StyledLink = styled.a`
     transform: translateX(-50%);
     content: '';
     width: 100%;
-    height: 3px;
     background-color: ${props => props.theme.colors.primaryLight};
     transition: all 250ms;
   }
@@ -27,8 +26,8 @@ const StyledLink = styled.a`
     color: white;
 
     &::after {
-      height: 110%;
-      width: 110%;
+      height: 105%;
+      width: 105%;
     }
   }
 `;
@@ -43,11 +42,19 @@ const MarkdownParagraph = styled.p`
 
 const MarkdownList = styled.ul`
   margin: 0;
+  list-style: none;
 `;
 
 const MarkdownListItem = styled.li`
-  margin: 1em 0;
-  line-height: 2em;
+  margin: 0;
+  line-height: 1em;
+  :before {
+    content: '\f0da';
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em;
+    width: 1.3em;
+  }
 `;
 
 const MarkdownLink = ({ href, children }) => {

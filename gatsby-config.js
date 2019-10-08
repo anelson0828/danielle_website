@@ -57,9 +57,9 @@ module.exports = client.getEntries().then(entries => {
   }
 
   return {
-    // siteMetadata: {
-    //   isMediumUserDefined: !!mediumUser,
-    // },
+    siteMetadata: {
+      // isMediumUserDefined: !!mediumUser,
+    },
     plugins,
   };
 });

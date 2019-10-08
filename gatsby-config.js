@@ -38,14 +38,14 @@ const plugins = [
 ];
 
 module.exports = client.getEntries().then(entries => {
-  const { mediumUser } = entries.items.find(getAboutEntry).fields;
+  // const { mediumUser } = entries.items.find(getAboutEntry).fields;
 
-  plugins.push({
-    resolve: 'gatsby-source-medium',
-    options: {
-      username: mediumUser || '@medium',
-    },
-  });
+  // plugins.push({
+  //   resolve: 'gatsby-source-medium',
+  //   options: {
+  //     username: mediumUser || '@medium',
+  //   },
+  // });
 
   if (ANALYTICS_ID) {
     plugins.push({
@@ -57,9 +57,9 @@ module.exports = client.getEntries().then(entries => {
   }
 
   return {
-    siteMetadata: {
-      isMediumUserDefined: !!mediumUser,
-    },
+    // siteMetadata: {
+    //   isMediumUserDefined: !!mediumUser,
+    // },
     plugins,
   };
 });

@@ -48,15 +48,7 @@ const TextContainer = styled.div`
   padding: 10px;
 `;
 
-const Job = ({
-  title,
-  company,
-  dates,
-  location,
-  companyInfo,
-  description,
-  icon,
-}) => (
+const Job = ({ title, dates, location, companyInfo, description, icon }) => (
   <JobBox marginTop={3} padding={2}>
     <TextContainer>
       <Text>

@@ -85,7 +85,6 @@ const Job = ({ title, dates, location, companyInfo, description, icon }) => (
 
 Job.propTypes = {
   title: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
   dates: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   companyInfo: PropTypes.string.isRequired,

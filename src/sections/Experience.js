@@ -136,10 +136,7 @@ const Experience = () => (
           <Button
             marginTop={3}
             style={{ backgroundColor: '#273C6B' }}
-            onClick={() => {
-              const w = window.open('./Bryce Baker Resume 2019.pdf', 'w');
-              w.document.title = 'Bryce Baker Resume';
-            }}
+            onClick={() => window.open('./resume.pdf')}
           >
             Download Resume
           </Button>

@@ -9,7 +9,7 @@ const client = contentful.createClient({
   accessToken: ACCESS_TOKEN,
 });
 
-const getAboutEntry = entry => entry.sys.contentType.sys.id === 'about';
+// const getAboutEntry = entry => entry.sys.contentType.sys.id === 'about';
 
 const plugins = [
   'gatsby-plugin-react-helmet',
@@ -34,10 +34,9 @@ const plugins = [
     },
   },
   'gatsby-transformer-remark',
-  'gatsby-plugin-offline',
 ];
 
-module.exports = client.getEntries().then(entries => {
+module.exports = client.getEntries().then(() => {
   // const { mediumUser } = entries.items.find(getAboutEntry).fields;
 
   // plugins.push({

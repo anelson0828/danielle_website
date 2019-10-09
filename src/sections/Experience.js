@@ -136,7 +136,7 @@ const Experience = () => (
           <Button
             marginTop={3}
             style={{ backgroundColor: '#273C6B' }}
-            onClick={() => window.open('./resume.pdf')}
+            onClick={() => window.open('/resume.pdf')}
           >
             Download Resume
           </Button>

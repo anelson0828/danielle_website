@@ -13,23 +13,17 @@ import markdownRenderer from '../components/MarkdownRenderer';
 const Background = () => (
   <div>
     <Triangle
-      color="secondary"
-      height={['80vh', '80vh']}
-      width={['100vw', '100vw']}
-      invertX
-    />
-
-    <Triangle
-      color="background"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      invertX
-    />
-
-    <Triangle
       color="backgroundDark"
-      height={['75vh', '70vh']}
+      height={['50vh', '50vh']}
       width={['100vw', '100vw']}
+      invertX
+    />
+
+    <Triangle
+      color="secondary"
+      height={['25vh', '40vh']}
+      width={['75vw', '60vw']}
+      invertX
       invertY
     />
   </div>
@@ -133,13 +127,13 @@ const Experience = () => (
               <Job {...p} />
             </Fade>
           ))}
-          <Button
+          {/* <Button
             marginTop={3}
             style={{ backgroundColor: '#273C6B' }}
-            onClick={() => window.open('/icons/resume.pdf')}
+            onClick={() => window.open('media/resume.pdf')}
           >
             Download Resume
-          </Button>
+          </Button> */}
         </div>
       )}
     />

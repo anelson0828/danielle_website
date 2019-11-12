@@ -49,13 +49,13 @@ const EllipsisHeading = styled(Heading)`
   border-bottom: ${props => props.theme.colors.primary} 5px solid;
 `;
 
-const Post = ({ title, text, image, url, date, time }) => (
+const Post = ({ title, blurb, image, url, date, time }) => (
   <Card onClick={() => window.open(url, '_blank')} pb={4}>
     <EllipsisHeading m={3} p={1}>
       {title}
     </EllipsisHeading>
     {image && <CoverImage src={image} height="200px" alt={title} />}
-    <Text m={3}>{text}</Text>
+    <Text m={3}>{blurb}</Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
       {`${date} - ${Math.ceil(time)} min`}
     </ImageSubtitle>
@@ -64,7 +64,7 @@ const Post = ({ title, text, image, url, date, time }) => (
 
 Post.propTypes = {
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  blurb: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
@@ -79,8 +79,8 @@ const parsePost = blog => {
     title,
     time: readTimeMinutes,
     date: createdAt,
-    text: blurb,
-    image,
+    blurb: blurb.childMarkdownRemark.rawMarkdownBody,
+    image: image.src,
     url,
     Component: Post,
   };

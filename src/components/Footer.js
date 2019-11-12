@@ -48,7 +48,7 @@ const Footer = () => (
           <FooterContainer>
             <Fade left>
               <TextFooter fontSize={[2, 3]}>
-                <span>Bryce Baker</span>
+                <span>Danielle Nelson</span>
               </TextFooter>
             </Fade>
             <Flex>

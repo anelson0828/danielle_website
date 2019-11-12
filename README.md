@@ -1,3 +1,1 @@
-# Bryce Baker Portfolio site
-
-View it at brycebaker.online
+# Danielle Nelson Portfolio site

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Flex, Image, Box as GridItem, Button } from 'rebass';
+import { Text, Flex, Image, Box as GridItem } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -68,7 +68,9 @@ const Job = ({ title, dates, location, companyInfo, description, icon }) => (
         <GridItem py={2}>{location}</GridItem>
         <GridItem width={2 / 2}>
           <ReactMarkdown
-            source={description.childMarkdownRemark.rawMarkdownBody}
+            source={
+              description ? description.childMarkdownRemark.rawMarkdownBody : ''
+            }
             renderers={markdownRenderer}
           />
         </GridItem>

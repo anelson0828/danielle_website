@@ -51,7 +51,7 @@ const TextContainer = styled.div`
 
 const Fact = ({ header, description, icon }) => (
   <Box p={0}>
-    <Flex style={{ height: '200px' }}>
+    <Flex>
       <TextContainer>
         <Title pb={1} marginBottom={2}>
           <Image
@@ -69,7 +69,9 @@ const Fact = ({ header, description, icon }) => (
         </Title>
         <Text>
           <ReactMarkdown
-            source={description.childMarkdownRemark.rawMarkdownBody}
+            source={
+              description ? description.childMarkdownRemark.rawMarkdownBody : ''
+            }
             renderers={markdownRenderer}
           />
         </Text>

@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { Heading, Text } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
@@ -46,41 +47,49 @@ const EllipsisHeading = styled(Heading)`
   display: -webkit-inline-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  border-bottom: ${props => props.theme.colors.primary} 5px solid;
 `;
 
 const Post = ({ title, blurb, image, url, date, time }) => (
   <Card onClick={() => window.open(url, '_blank')} pb={4}>
     <EllipsisHeading m={3} p={1}>
-      {title}
+      <Text fontSize={16}>{title}</Text>
     </EllipsisHeading>
     {image && <CoverImage src={image} height="200px" alt={title} />}
     <Text m={3}>{blurb}</Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${date} - ${Math.ceil(time)} min`}
+      {`${date} - ${Math.ceil(time)} min read`}
     </ImageSubtitle>
   </Card>
 );
 
 Post.propTypes = {
   title: PropTypes.string.isRequired,
-  blurb: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  blurb: PropTypes.string,
+  image: PropTypes.string,
   url: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  time: PropTypes.number.isRequired,
+  date: PropTypes.string,
+  time: PropTypes.number,
 };
 
 const parsePost = blog => {
-  const { id, url, createdAt, title, readTimeMinutes, blurb, image } = blog;
-
+  const {
+    id,
+    url,
+    dateString,
+    dateUtc,
+    title,
+    readTimeMinutes,
+    blurb,
+    image,
+  } = blog;
   return {
     id,
     title,
     time: readTimeMinutes,
-    date: createdAt,
-    blurb: blurb.childMarkdownRemark.rawMarkdownBody,
-    image: image.src,
+    date: dateString,
+    sortBy: dateUtc,
+    blurb: blurb ? blurb.childMarkdownRemark.rawMarkdownBody : '',
+    image: image.image.src,
     url,
     Component: Post,
   };
@@ -102,7 +111,8 @@ const Writing = () => (
                 src
               }
             }
-            createdAt
+            dateString: publishedDate(formatString: "MMM-DD-YYYY")
+            dateUtc: publishedDate
             blurb {
               childMarkdownRemark {
                 rawMarkdownBody
@@ -113,12 +123,13 @@ const Writing = () => (
       }
     `}
     render={({ contentfulAbout }) => {
-      const posts = contentfulAbout.writing.map(w => parsePost(w));
+      let posts = contentfulAbout.writing.map(w => parsePost(w));
+      posts = _.orderBy(posts, 'sortBy', 'desc');
 
       return (
         <Section.Container id="writing" Background={Background}>
-          <Section.Header name="Writing" label="writing" />
-          <CardContainer minWidth="300px">
+          <Section.Header name="Published Marketing Blogs" label="writing" />
+          <CardContainer minWidth="200px">
             {posts.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
                 <Component {...rest} key={rest.id} />

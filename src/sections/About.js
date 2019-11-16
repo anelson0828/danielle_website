@@ -55,7 +55,7 @@ const About = () => (
             }
             profile {
               title
-              image: resize(width: 450, quality: 100) {
+              image: resize(width: 650, quality: 100) {
                 src
               }
             }

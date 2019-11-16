@@ -54,7 +54,7 @@ const Post = ({ title, blurb, image, url, date, time }) => (
     <EllipsisHeading m={3} p={1}>
       <Text fontSize={16}>{title}</Text>
     </EllipsisHeading>
-    {image && <CoverImage src={image} height="200px" alt={title} />}
+    {image && <CoverImage src={image} alt={title} />}
     <Text m={3}>{blurb}</Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
       {`${date} - ${Math.ceil(time)} min read`}
@@ -107,7 +107,7 @@ const Writing = () => (
             readTimeMinutes
             image {
               title
-              image: resize(width: 200, quality: 100) {
+              image: resize(height: 200, quality: 100) {
                 src
               }
             }

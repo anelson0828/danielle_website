@@ -6,9 +6,10 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown';
 import Section from '../components/Section';
-import { BoxContainer, Box } from '../components/Box';
+import { BoxContainer } from '../components/Box';
 import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
+import { Job as JobBox } from '../components/Job';
 
 const Background = () => (
   <div>
@@ -46,11 +47,11 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 600px;
+  minwidth: 400px;
 `;
 
 const Fact = ({ header, description, icon }) => (
-  <Box p={0}>
+  <JobBox p={2} marginTop={3} padding={2} minWidth={400} minHeight={250}>
     <Flex>
       <TextContainer>
         <Title pb={1} marginBottom={2}>
@@ -77,7 +78,7 @@ const Fact = ({ header, description, icon }) => (
         </Text>
       </TextContainer>
     </Flex>
-  </Box>
+  </JobBox>
 );
 
 Fact.propTypes = {
@@ -117,12 +118,18 @@ const Facts = () => (
         }
       `}
       render={({ contentfulAbout }) => (
-        <BoxContainer minWidth="550px">
-          {contentfulAbout.facts.map((p, i) => (
-            <Fade bottom delay={i * 200} key={p.id}>
-              <Fact {...p} />
-            </Fade>
-          ))}
+        <BoxContainer minWidth="850px">
+          <Flex
+            flexDirection="row"
+            flexWrap="wrap"
+            justifyContent="space-between"
+          >
+            {contentfulAbout.facts.map((p, i) => (
+              <Fade bottom delay={i * 200} key={p.id}>
+                <Fact {...p} />
+              </Fade>
+            ))}
+          </Flex>
         </BoxContainer>
       )}
     />

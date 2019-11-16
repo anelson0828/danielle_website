@@ -9,7 +9,6 @@ const StyledLink = styled.a`
   color: black;
   cursor: pointer;
   position: relative;
-
   &:after {
     position: absolute;
     z-index: -1;
@@ -18,7 +17,7 @@ const StyledLink = styled.a`
     transform: translateX(-50%);
     content: '';
     width: 100%;
-    background-color: ${props => props.theme.colors.primaryLight};
+    background-color: ${props => props.theme.colors.secondary};
     transition: all 250ms;
   }
 
@@ -33,10 +32,11 @@ const StyledLink = styled.a`
 `;
 
 const MarkdownParagraph = styled.p`
-  line-height: 2em;
+  line-height: 1.3em;
+  margin-left: 1.3em;
 
   &:first-child {
-    margin-top: 0em;
+    margin-top: 0.5em;
   }
 `;
 
@@ -47,10 +47,11 @@ const MarkdownList = styled.ul`
 
 const MarkdownListItem = styled.li`
   margin: 0;
-  line-height: 1em;
+  line-height: 1.3em;
   :before {
     content: '\f0da';
     font-family: FontAwesome;
+    font-size: 12px;
     display: inline-block;
     margin-left: -1.3em;
     width: 1.3em;

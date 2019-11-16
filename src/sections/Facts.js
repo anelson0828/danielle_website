@@ -47,12 +47,11 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  minwidth: 400px;
 `;
 
 const Fact = ({ header, description, icon }) => (
-  <JobBox p={2} marginTop={3} padding={2} minWidth={400} minHeight={250}>
-    <Flex>
+  <JobBox marginTop={3} padding={2} minHeight={300} minWidth={375}>
+    <Flex flex-basis={400} flex-grow={1}>
       <TextContainer>
         <Title pb={1} marginBottom={2}>
           <Image
@@ -94,45 +93,47 @@ Fact.propTypes = {
 
 const Facts = () => (
   <Section.Container id="facts" Background={Background}>
-    <Section.Header name="Facts" Box="notebook" />
-    <StaticQuery
-      query={graphql`
-        query FactsQuery {
-          contentfulAbout {
-            facts {
-              id
-              header
-              icon {
-                title
-                image: resize(width: 200, quality: 100) {
-                  src
+    <div style={{ marginTop: 100 }}>
+      <Section.Header name="Facts" Box="notebook" />
+      <StaticQuery
+        query={graphql`
+          query FactsQuery {
+            contentfulAbout {
+              facts {
+                id
+                header
+                icon {
+                  title
+                  image: resize(width: 200, quality: 100) {
+                    src
+                  }
                 }
-              }
-              description {
-                childMarkdownRemark {
-                  rawMarkdownBody
+                description {
+                  childMarkdownRemark {
+                    rawMarkdownBody
+                  }
                 }
               }
             }
           }
-        }
-      `}
-      render={({ contentfulAbout }) => (
-        <BoxContainer minWidth="850px">
-          <Flex
-            flexDirection="row"
-            flexWrap="wrap"
-            justifyContent="space-between"
-          >
-            {contentfulAbout.facts.map((p, i) => (
-              <Fade bottom delay={i * 200} key={p.id}>
-                <Fact {...p} />
-              </Fade>
-            ))}
-          </Flex>
-        </BoxContainer>
-      )}
-    />
+        `}
+        render={({ contentfulAbout }) => (
+          <BoxContainer>
+            <Flex
+              flexDirection="row"
+              flexWrap="wrap"
+              justifyContent="space-between"
+            >
+              {contentfulAbout.facts.map((p, i) => (
+                <Fade bottom delay={i * 200} key={p.id}>
+                  <Fact {...p} />
+                </Fade>
+              ))}
+            </Flex>
+          </BoxContainer>
+        )}
+      />
+    </div>
   </Section.Container>
 );
 

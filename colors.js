@@ -3,10 +3,10 @@ module.exports = {
   backgroundDark: '#729CAA', // light blue- second top triangle
 
   primary: '#000000', // black
-  primaryLight: '#3E7C91', // brighter blue
-  primaryDark: '#013547', // light gray blue
+  primaryLight: '#c4f0ff', // brighter blue
+  primaryDark: '#3E7C91', // light gray blue
 
-  secondary: '#3E7C91', // dark blue
+  secondary: '#013547', // dark blue
   secondaryLight: '#3E7C91', // light blue
   secondaryDark: '#3E7C91', // gray
 };

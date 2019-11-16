@@ -11,9 +11,9 @@ import Triangle from '../components/Triangle';
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
+      color="primaryLight"
       height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
+      width={['95vw', '40vw']}
     />
 
     <Triangle

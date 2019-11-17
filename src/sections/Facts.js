@@ -50,7 +50,7 @@ const TextContainer = styled.div`
 `;
 
 const Fact = ({ header, description, icon }) => (
-  <JobBox marginTop={3} padding={2} minHeight={300} minWidth={375}>
+  <JobBox marginTop={3} padding={2} minHeight={300} minWidth={270}>
     <Flex flex-basis={400} flex-grow={1}>
       <TextContainer>
         <Title pb={1} marginBottom={2}>

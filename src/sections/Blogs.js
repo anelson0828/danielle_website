@@ -95,7 +95,7 @@ const parsePost = blog => {
   };
 };
 
-const Writing = () => (
+const Blogs = () => (
   <StaticQuery
     query={graphql`
       query WritingQuery {
@@ -127,8 +127,8 @@ const Writing = () => (
       posts = _.orderBy(posts, 'sortBy', 'desc');
 
       return (
-        <Section.Container id="writing" Background={Background}>
-          <Section.Header name="Published Marketing Blogs" label="writing" />
+        <Section.Container id="blogs" Background={Background}>
+          <Section.Header name="Published Marketing Blogs" label="Blogs" />
           <CardContainer minWidth="200px">
             {posts.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
@@ -142,4 +142,4 @@ const Writing = () => (
   />
 );
 
-export default Writing;
+export default Blogs;

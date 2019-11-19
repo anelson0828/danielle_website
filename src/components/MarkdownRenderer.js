@@ -8,6 +8,7 @@ const StyledLink = styled.a`
   transition: color 250ms, text-shadow 250ms;
   color: black;
   cursor: pointer;
+  text-decoration: underline;
   position: relative;
   &:after {
     position: absolute;

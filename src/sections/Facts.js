@@ -21,7 +21,7 @@ const FactsContainer = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   display: table;

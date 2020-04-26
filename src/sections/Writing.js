@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import { Heading, Text } from 'rebass';
+import { Heading, Text, Button } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -80,7 +80,7 @@ const parsePost = blog => {
   };
 };
 
-const Blogs = () => (
+const Writing = () => (
   <StaticQuery
     query={graphql`
       query WritingQuery {
@@ -137,10 +137,12 @@ const Blogs = () => (
         'sortBy',
         'desc',
       );
+      const [showMore, setShowMore] = React.useState(false);
+      const techPostsToShow = !showMore ? techPosts.slice(0, 6) : techPosts;
 
       return (
-        <Section.Container id="blogs">
-          <Section.Header name="Writing" label="Blogs" />
+        <Section.Container id="writing">
+          <Section.Header name="Writing" label="Writing" />
           <SubHeader>Health</SubHeader>
           <CardContainer minWidth="200px">
             {healthPosts.map(({ Component, ...rest }) => (
@@ -151,16 +153,23 @@ const Blogs = () => (
           </CardContainer>
           <SubHeader>Tech</SubHeader>
           <CardContainer minWidth="200px">
-            {techPosts.map(({ Component, ...rest }) => (
+            {techPostsToShow.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
                 <Component {...rest} key={rest.id} />
               </Fade>
             ))}
           </CardContainer>
+          <Button
+            marginTop={3}
+            style={{ backgroundColor: '#F3F3F3', color: '#666666' }}
+            onClick={() => setShowMore(!showMore)}
+          >
+            {showMore ? 'Show less' : 'Show More'}
+          </Button>
         </Section.Container>
       );
     }}
   />
 );
 
-export default Blogs;
+export default Writing;

@@ -14,6 +14,7 @@ const HeaderContainer = styled(Headroom)`
   }
   position: absolute;
   width: 100%;
+  font-family: 'Quicksand';
 `;
 
 // .headroom--pinned {

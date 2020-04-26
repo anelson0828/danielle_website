@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Flex, Image, Box as GridItem } from 'rebass';
+import { Text, Flex, Box as GridItem, Heading } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -11,7 +11,7 @@ import markdownRenderer from '../components/MarkdownRenderer';
 
 const Title = styled(Text)`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   display: table;
 `;
@@ -22,24 +22,10 @@ const TextContainer = styled.div`
   padding: 10px;
 `;
 
-const Job = ({ title, dates, location, companyInfo, description, icon }) => (
+const Job = ({ title, dates, location, companyInfo, description }) => (
   <JobBox marginTop={3} padding={2}>
     <TextContainer>
-      <Text>
-        <Image
-          src={icon.image.src}
-          alt={icon.title}
-          marginTop={1}
-          verticalAlign="center"
-          style={{
-            maxWidth: '120px',
-            maxHeight: '40px',
-            marginRight: '15px',
-          }}
-        />
-        {'-   '}
-        {companyInfo}
-      </Text>
+      <Text>{companyInfo}</Text>
       <Title marginTop={2}>{title}</Title>
       <Flex flexWrap="wrap" justifyContent="space-between">
         <GridItem py={2} width={1 / 2}>
@@ -75,7 +61,7 @@ Job.propTypes = {
 
 const Experience = () => (
   <Section.Container id="experience" color="green">
-    <Section.Header name="Experience" Box="notebook" />
+    <Section.Header name="Experience" Box="notebook" color="background" />
     <StaticQuery
       query={graphql`
         query ExperienceQuery {
@@ -87,12 +73,19 @@ const Experience = () => (
               dates
               location
               companyInfo
-              icon {
-                title
-                image: resize(height: 50, quality: 100) {
-                  src
+              description {
+                childMarkdownRemark {
+                  rawMarkdownBody
                 }
               }
+            }
+            eventsBoxes {
+              id
+              title
+              company
+              dates
+              location
+              companyInfo
               description {
                 childMarkdownRemark {
                   rawMarkdownBody
@@ -105,6 +98,14 @@ const Experience = () => (
       render={({ contentfulAbout }) => (
         <div>
           {contentfulAbout.experience.map((p, i) => (
+            <Fade bottom delay={i * 200} key={p.id}>
+              <Job {...p} />
+            </Fade>
+          ))}
+          <Heading color="background" mt={4}>
+            Events
+          </Heading>
+          {contentfulAbout.eventsBoxes.map((p, i) => (
             <Fade bottom delay={i * 200} key={p.id}>
               <Job {...p} />
             </Fade>

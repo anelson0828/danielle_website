@@ -3,7 +3,7 @@ import { Box } from 'rebass';
 import PropTypes from 'prop-types';
 
 const BORDER_SPACING = '20px';
-const BORDER_RADIUS = '8px';
+const BORDER_RADIUS = '0px';
 
 const BORDER_PATH_MAP = {
   'top-left': `polygon(0 0%, 100% 0%, calc(100% - ${BORDER_SPACING}) 100%, 0% 100%);`,
@@ -29,13 +29,13 @@ const ImageSubtitle = styled(Box)`
 
   ${props => props.x}: 0;
   ${props => props.y}: 0;
-  
+
   ${props =>
     props.x === 'left'
       ? `padding-right: ${BORDER_SPACING};`
       : `padding-left: ${BORDER_SPACING};`}
   clip-path: ${props => BORDER_PATH_MAP[`${props.y}-${props.x}`]};
-  
+
   ${props =>
     props.round &&
     `border-radius: ${BORDER_RADIUS_MAP[`${props.y}-${props.x}`]};`}

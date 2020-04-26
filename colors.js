@@ -6,7 +6,7 @@ module.exports = {
   tan: '#AD978B',
   brown: '#5D4135',
   darkGrey: '#666666',
-  primary: '#5D4135', // brown
+  primary: '#666666', // gray
   primaryLight: '#96b59a', // light green
   lightTan: '#e2d4cc',
 };

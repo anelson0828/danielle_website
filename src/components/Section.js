@@ -36,9 +36,9 @@ Container.propTypes = {
   color: PropTypes.string.isRequired,
 };
 
-const Header = ({ name, icon = '', label = '' }) => (
+const Header = ({ name, icon = '', label = '', color = 'black' }) => (
   <Slide left>
-    <Heading color="black" mb={4}>
+    <Heading color={color} mb={4}>
       <LinkAnimated selected>
         {name}
         {icon && (
@@ -55,6 +55,7 @@ Header.propTypes = {
   name: PropTypes.string.isRequired,
   icon: PropTypes.string,
   label: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default {

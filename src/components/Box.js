@@ -21,7 +21,6 @@ export const Box = styled(Card).attrs({
   boxShadow: 0,
 })`
   position: relative;
-  borderradius: 10;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   transition: all 0.25s;
   top: 0;

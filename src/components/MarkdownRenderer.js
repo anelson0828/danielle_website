@@ -34,7 +34,6 @@ const StyledLink = styled.a`
 
 const MarkdownParagraph = styled.p`
   line-height: 1.3em;
-  margin-left: 1.3em;
 
   &:first-child {
     margin-top: 0.5em;

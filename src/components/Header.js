@@ -10,7 +10,7 @@ const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
 const HeaderContainer = styled(Headroom)`
   .headroom {
-    background: ${props => props.theme.colors.darkGrey};
+    background: ${props => props.theme.colors.lightGreen};
   }
   position: absolute;
   width: 100%;

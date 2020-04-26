@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Flex } from 'rebass';
+import { Flex } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -8,9 +8,19 @@ import ReactMarkdown from 'react-markdown';
 import Section from '../components/Section';
 import { BoxContainer } from '../components/Box';
 import markdownRenderer from '../components/MarkdownRenderer';
-import { Job as JobBox } from '../components/Job';
 
-const Title = styled(Text)`
+const FactsContainer = styled.div`
+  position: relative;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s;
+  top: 0;
+  display: flex;
+  background-color: #f3f3f3;
+  margin-bottom: 20px;
+  margin-right: 20px;
+`;
+
+const Title = styled.div`
   font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
@@ -20,27 +30,23 @@ const Title = styled(Text)`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
 `;
 
 const Fact = ({ header, description }) => (
-  <JobBox marginTop={3} padding={2} minHeight={300} minWidth={270}>
-    <Flex flex-basis={400} flex-grow={1}>
+  <FactsContainer padding={2}>
+    <Flex flexDirection="row" maxWidth="380px" minHeight="260px">
       <TextContainer>
-        <Title pb={1} marginBottom={2}>
-          {header}
-        </Title>
-        <Text>
-          <ReactMarkdown
-            source={
-              description ? description.childMarkdownRemark.rawMarkdownBody : ''
-            }
-            renderers={markdownRenderer}
-          />
-        </Text>
+        <Title pb={1}>{header}</Title>
+        <ReactMarkdown
+          source={
+            description ? description.childMarkdownRemark.rawMarkdownBody : ''
+          }
+          renderers={markdownRenderer}
+        />
       </TextContainer>
     </Flex>
-  </JobBox>
+  </FactsContainer>
 );
 
 Fact.propTypes = {
@@ -50,41 +56,39 @@ Fact.propTypes = {
 
 const Facts = () => (
   <Section.Container id="facts" color="tan">
-    <div>
-      <Section.Header name="Fun Facts" Box="notebook" />
-      <StaticQuery
-        query={graphql`
-          query FactsQuery {
-            contentfulAbout {
-              funFacts {
-                id
-                header
-                description {
-                  childMarkdownRemark {
-                    rawMarkdownBody
-                  }
+    <Section.Header name="Fun Facts" Box="notebook" color="#F3F3F3" />
+    <StaticQuery
+      query={graphql`
+        query FactsQuery {
+          contentfulAbout {
+            funFacts {
+              id
+              header
+              description {
+                childMarkdownRemark {
+                  rawMarkdownBody
                 }
               }
             }
           }
-        `}
-        render={({ contentfulAbout }) => (
-          <BoxContainer>
-            <Flex
-              flexDirection="row"
-              flexWrap="wrap"
-              justifyContent="space-between"
-            >
-              {contentfulAbout.funFacts.map((p, i) => (
-                <Fade bottom delay={i * 200} key={p.id}>
-                  <Fact {...p} />
-                </Fade>
-              ))}
-            </Flex>
-          </BoxContainer>
-        )}
-      />
-    </div>
+        }
+      `}
+      render={({ contentfulAbout }) => (
+        <BoxContainer bg="tan">
+          <Flex
+            flexDirection="row"
+            flexWrap="wrap"
+            justifyContent="space-between"
+          >
+            {contentfulAbout.funFacts.map((p, i) => (
+              <Fade bottom delay={i * 200} key={p.id}>
+                <Fact {...p} />
+              </Fade>
+            ))}
+          </Flex>
+        </BoxContainer>
+      )}
+    />
   </Section.Container>
 );
 

@@ -17,7 +17,12 @@ const plugins = [
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Roboto', 'Open Sans', 'Syncopate', 'The Girl Next Door'],
+        families: [
+          'Roboto:400,700',
+          'Open Sans',
+          'Syncopate',
+          'Quicksand:300,400',
+        ],
       },
     },
   },

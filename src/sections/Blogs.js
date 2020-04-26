@@ -16,7 +16,7 @@ const CoverImage = styled.img`
 
 const SubHeader = styled.div`
   width: 100%;
-  background-color: ${props => props.theme.colors.brown};
+  background-color: ${props => props.theme.colors.darkGrey};
   padding: 15px;
   margin-bottom: 20px;
   margin-top: 40px;
@@ -24,6 +24,7 @@ const SubHeader = styled.div`
 `;
 
 const EllipsisHeading = styled(Heading)`
+  height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-inline-box;

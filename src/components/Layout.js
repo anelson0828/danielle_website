@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
     }
   h2 {
-    font-family: Syncopate, 'Open Sans', sans-serif;
-
+    font-family: Quicksand, 'Open Sans', sans-serif;
+    text-transform: uppercase;
   }
   body {
     box-sizing: border-box;

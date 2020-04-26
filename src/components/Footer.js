@@ -30,7 +30,6 @@ const Footer = () => (
       query FooterQuery {
         contentfulAbout {
           name
-          roles
           socialLinks {
             id
             url
@@ -44,7 +43,7 @@ const Footer = () => (
       const { socialLinks } = data.contentfulAbout;
 
       return (
-        <Box p={3} backgroundColor="primaryDark">
+        <Box p={3} backgroundColor="darkGrey">
           <FooterContainer>
             <Fade left>
               <TextFooter fontSize={[2, 3]}>

@@ -196,20 +196,6 @@
           "omitted": false
         },
         {
-          "id": "roles",
-          "name": "Roles",
-          "type": "Array",
-          "localized": false,
-          "required": false,
-          "validations": [],
-          "disabled": false,
-          "omitted": false,
-          "items": {
-            "type": "Symbol",
-            "validations": []
-          }
-        },
-        {
           "id": "socialLinks",
           "name": "Social Links",
           "type": "Array",
@@ -492,10 +478,6 @@
           "widgetId": "singleLine"
         },
         {
-          "fieldId": "roles",
-          "widgetId": "tagEditor"
-        },
-        {
           "fieldId": "socialLinks",
           "settings": {
             "bulkEditing": false
@@ -643,14 +625,6 @@
         },
         "description": {
           "en-US": "Gatsby v2 starter to create a top notch portfolio!"
-        },
-        "roles": {
-          "en-US": [
-            "Quick setup 🚀",
-            "Responsive 📱",
-            "PWA ✨",
-            "Contentful CMS 🔧"
-          ]
         },
         "socialLinks": {
           "en-US": [

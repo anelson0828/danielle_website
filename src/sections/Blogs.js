@@ -7,38 +7,20 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
 import { CardContainer, Card } from '../components/Card';
-import Triangle from '../components/Triangle';
 import ImageSubtitle from '../components/ImageSubtitle';
-
-const Background = () => (
-  <div>
-    <Triangle
-      color="backgroundDark"
-      height={['15vh', '10vh']}
-      width={['100vw', '100vw']}
-      invertX
-    />
-
-    <Triangle
-      color="secondary"
-      height={['50vh', '40vh']}
-      width={['70vw', '40vw']}
-      invertY
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['40vh', '15vh']}
-      width={['100vw', '100vw']}
-      invertX
-      invertY
-    />
-  </div>
-);
 
 const CoverImage = styled.img`
   width: 100%;
   object-fit: cover;
+`;
+
+const SubHeader = styled.div`
+  width: 100%;
+  background-color: ${props => props.theme.colors.brown};
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: white;
 `;
 
 const EllipsisHeading = styled(Heading)`
@@ -52,7 +34,9 @@ const EllipsisHeading = styled(Heading)`
 const Post = ({ title, blurb, image, url, date, time }) => (
   <Card onClick={() => window.open(url, '_blank')} pb={4}>
     <EllipsisHeading m={3} p={1}>
-      <Text fontSize={16}>{title}</Text>
+      <Text fontSize={16} fontFamily="Roboto">
+        {title}
+      </Text>
     </EllipsisHeading>
     {image && <CoverImage src={image} alt={title} />}
     <Text m={3}>{blurb}</Text>
@@ -119,18 +103,54 @@ const Blogs = () => (
               }
             }
           }
+          healthWriting {
+            id
+            url
+            title
+            readTimeMinutes
+            image {
+              title
+              image: resize(height: 200, quality: 100) {
+                src
+              }
+            }
+            dateString: publishedDate(formatString: "MMM-DD-YYYY")
+            dateUtc: publishedDate
+            blurb {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
         }
       }
     `}
     render={({ contentfulAbout }) => {
-      let posts = contentfulAbout.writing.map(w => parsePost(w));
-      posts = _.orderBy(posts, 'sortBy', 'desc');
+      const techPosts = _.orderBy(
+        contentfulAbout.writing.map(w => parsePost(w)),
+        'sortBy',
+        'desc',
+      );
+      const healthPosts = _.orderBy(
+        contentfulAbout.healthWriting.map(w => parsePost(w)),
+        'sortBy',
+        'desc',
+      );
 
       return (
-        <Section.Container id="blogs" Background={Background}>
-          <Section.Header name="Published Marketing Blogs" label="Blogs" />
+        <Section.Container id="blogs">
+          <Section.Header name="Writing" label="Blogs" />
+          <SubHeader>Health</SubHeader>
           <CardContainer minWidth="200px">
-            {posts.map(({ Component, ...rest }) => (
+            {healthPosts.map(({ Component, ...rest }) => (
+              <Fade bottom key={rest.id}>
+                <Component {...rest} key={rest.id} />
+              </Fade>
+            ))}
+          </CardContainer>
+          <SubHeader>Tech</SubHeader>
+          <CardContainer minWidth="200px">
+            {techPosts.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
                 <Component {...rest} key={rest.id} />
               </Fade>

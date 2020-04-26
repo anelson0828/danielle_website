@@ -7,31 +7,33 @@ import Slide from 'react-reveal/Slide';
 import LinkAnimated from './LinkAnimated';
 
 const SectionContainer = styled.div`
-  min-height: 100vh;
   min-width: 320px;
-  max-width: 1366px;
   display: flex;
   margin: auto;
   flex: 0 1 auto;
   flex-direction: column;
   justify-content: center;
-  padding: 5em 1em;
+  padding: 5em 5em;
   scroll-behavior: smooth;
+  background: ${props => props.theme.colors[props.color]};
 `;
 
-const DefaultBackground = () => <div />;
+const DefaultBackground = () => <div style={{ backgroundColor: '#F3F3F3' }} />;
 
-const Container = ({ id, children, Background = DefaultBackground }) => (
-  <Section id={id} style={{ position: 'relative' }}>
-    <Background />
-    <SectionContainer>{children}</SectionContainer>
-  </Section>
-);
+const Container = ({ id, color, children, Background = DefaultBackground }) => {
+  return (
+    <Section id={id} style={{ position: 'relative' }}>
+      <Background />
+      <SectionContainer color={color}>{children}</SectionContainer>
+    </Section>
+  );
+};
 
 Container.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   Background: PropTypes.func,
+  color: PropTypes.string.isRequired,
 };
 
 const Header = ({ name, icon = '', label = '' }) => (

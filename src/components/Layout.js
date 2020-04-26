@@ -10,17 +10,21 @@ import Helmet from './Helmet';
 const GlobalStyle = createGlobalStyle`
   *,
   *::after,
-  *::before { 
+  *::before {
     box-sizing: inherit;
     }
+  h2 {
+    font-family: Syncopate, 'Open Sans', sans-serif;
 
+  }
   body {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin: 0;
-    font-family: Cabin, 'Open Sans', sans-serif;
+    font-family: Roboto, 'Open Sans', sans-serif;
     font-display: swap;
     font-display: fallback;
     overflow-x: hidden;
+    background-color: #F3F3F3;
   }
 `;
 

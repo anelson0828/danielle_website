@@ -5,35 +5,11 @@ import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
-import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
-
-const Background = () => (
-  <div>
-    <Triangle
-      color="secondary"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      invertY
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['20vh', '40vh']}
-      width={['75vw', '70vw']}
-      invertX
-    />
-
-    <Triangle
-      color="backgroundDark"
-      height={['10vh', '15vh']}
-      width={['100vw', '100vw']}
-    />
-  </div>
-);
+import SocialLink from '../components/SocialLink';
 
 const ProfilePicture = styled(Image)`
-  border-radius: 50%;
+  border-radius: 10%;
   transition: all 0.25s ease-out;
 
   &:hover {
@@ -42,7 +18,7 @@ const ProfilePicture = styled(Image)`
 `;
 
 const About = () => (
-  <Section.Container id="about" Background={Background}>
+  <Section.Container id="about">
     <Section.Header name="About me" label="person" />
     <StaticQuery
       query={graphql`
@@ -59,11 +35,17 @@ const About = () => (
                 src
               }
             }
+            socialLinks {
+              id
+              url
+              name
+              fontAwesomeIcon
+            }
           }
         }
       `}
       render={data => {
-        const { aboutMe, profile } = data.contentfulAbout;
+        const { aboutMe, profile, socialLinks } = data.contentfulAbout;
         return (
           <Flex
             justifyContent="center"
@@ -92,6 +74,13 @@ const About = () => (
                   ml={[0, 0, 1]}
                 />
               </Fade>
+              <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+                {socialLinks.map(({ id, ...rest }) => (
+                  <Box mx={3} fontSize={[4, 5, 5]} key={id}>
+                    <SocialLink {...rest} />
+                  </Box>
+                ))}
+              </Flex>
             </Box>
           </Flex>
         );

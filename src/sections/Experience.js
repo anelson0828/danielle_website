@@ -7,27 +7,7 @@ import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown';
 import Section from '../components/Section';
 import { Job as JobBox } from '../components/Job';
-import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
-
-const Background = () => (
-  <div>
-    <Triangle
-      color="backgroundDark"
-      height={['50vh', '50vh']}
-      width={['100vw', '100vw']}
-      invertX
-    />
-
-    <Triangle
-      color="secondary"
-      height={['25vh', '40vh']}
-      width={['75vw', '60vw']}
-      invertX
-      invertY
-    />
-  </div>
-);
 
 const Title = styled(Text)`
   font-size: 16px;
@@ -94,7 +74,7 @@ Job.propTypes = {
 };
 
 const Experience = () => (
-  <Section.Container id="experience" Background={Background}>
+  <Section.Container id="experience" color="green">
     <Section.Header name="Experience" Box="notebook" />
     <StaticQuery
       query={graphql`

@@ -1,12 +1,12 @@
 module.exports = {
-  background: '#FFFFFF',
-  backgroundDark: '#729CAA', // light blue- second top triangle
-
-  primary: '#000000', // black
-  primaryLight: '#c4f0ff', // brighter blue
-  primaryDark: '#3E7C91', // light gray blue
-
-  secondary: '#013547', // dark blue
-  secondaryLight: '#3E7C91', // light blue
-  secondaryDark: '#3E7C91', // gray
+  background: '#F3F3F3',
+  green: '#727B6B',
+  lightGreen: '#919D93',
+  gray: '#D6D4D4',
+  tan: '#AD978B',
+  brown: '#5D4135',
+  darkGrey: '#666666',
+  primary: '#5D4135', // brown
+  primaryLight: '#96b59a', // light green
+  lightTan: '#e2d4cc',
 };

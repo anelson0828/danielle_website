@@ -9,13 +9,16 @@ import RouteLink from './RouteLink';
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
 const HeaderContainer = styled(Headroom)`
-  .headroom--pinned {
-    background: ${props => props.theme.colors.primaryDark};
+  .headroom {
+    background: ${props => props.theme.colors.darkGrey};
   }
-
   position: absolute;
   width: 100%;
 `;
+
+// .headroom--pinned {
+//   background: ${props => props.theme.colors.darkGrey};
+// }
 
 const formatLinks = allLinks =>
   Object.entries(allLinks).reduce(

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Card } from 'rebass';
 
 export const Job = styled(Card).attrs({
-  bg: '#FFFFFF',
+  bg: '#F3F3F3',
   boxShadow: 0,
   borderRadius: 8,
 })`

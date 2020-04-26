@@ -17,9 +17,8 @@ export const BoxContainer = styled.div`
 `;
 
 export const Box = styled(Card).attrs({
-  bg: '#FFFFFF',
+  bg: '#F3F3F3',
   boxShadow: 0,
-  borderRadius: 8,
 })`
   position: relative;
   borderradius: 10;

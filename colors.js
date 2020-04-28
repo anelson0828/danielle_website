@@ -5,8 +5,8 @@ module.exports = {
   gray: '#D6D4D4',
   tan: '#AD978B',
   brown: '#5D4135',
-  darkGrey: '#666666',
-  primary: '#666666', // gray
+  darkGrey: '#494848',
+  primary: '#494848', // gray
   primaryLight: '#96b59a', // light green
   lightTan: '#e2d4cc',
 };

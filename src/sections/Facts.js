@@ -55,8 +55,8 @@ Fact.propTypes = {
 };
 
 const Facts = () => (
-  <Section.Container id="facts" color="tan">
-    <Section.Header name="Fun Facts" Box="notebook" color="#F3F3F3" />
+  <Section.Container id="facts" color="gray">
+    <Section.Header name="Fun Facts" Box="notebook" />
     <StaticQuery
       query={graphql`
         query FactsQuery {

@@ -35,7 +35,12 @@ const TextContainer = styled.div`
 
 const Fact = ({ header, description }) => (
   <FactsContainer padding={2}>
-    <Flex flexDirection="row" maxWidth="380px" minHeight="260px">
+    <Flex
+      flexDirection="row"
+      maxWidth="220px"
+      minHeight="310px"
+      justifyContent="space-between"
+    >
       <TextContainer>
         <Title pb={1}>{header}</Title>
         <ReactMarkdown
@@ -79,6 +84,7 @@ const Facts = () => (
             flexDirection="row"
             flexWrap="wrap"
             justifyContent="space-between"
+            width="100%"
           >
             {contentfulAbout.funFacts.map((p, i) => (
               <Fade bottom delay={i * 200} key={p.id}>

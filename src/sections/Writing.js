@@ -42,7 +42,7 @@ const Post = ({ title, blurb, image, url, date, time }) => (
     {image && <CoverImage src={image} alt={title} />}
     <Text m={3}>{blurb}</Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${date} - ${Math.ceil(time)} min read`}
+      {`${Math.ceil(time)} min read`}
     </ImageSubtitle>
   </Card>
 );
@@ -141,19 +141,19 @@ const Writing = () => (
       const techPostsToShow = !showMore ? techPosts.slice(0, 6) : techPosts;
 
       return (
-        <Section.Container id="writing">
-          <Section.Header name="Writing" label="Writing" />
-          <SubHeader>Health</SubHeader>
+        <Section.Container id="content">
+          <Section.Header name="Content" label="Content" />
+          <SubHeader>Tech</SubHeader>
           <CardContainer minWidth="200px">
-            {healthPosts.map(({ Component, ...rest }) => (
+            {techPostsToShow.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
                 <Component {...rest} key={rest.id} />
               </Fade>
             ))}
           </CardContainer>
-          <SubHeader>Tech</SubHeader>
+          <SubHeader>Wellness</SubHeader>
           <CardContainer minWidth="200px">
-            {techPostsToShow.map(({ Component, ...rest }) => (
+            {healthPosts.map(({ Component, ...rest }) => (
               <Fade bottom key={rest.id}>
                 <Component {...rest} key={rest.id} />
               </Fade>

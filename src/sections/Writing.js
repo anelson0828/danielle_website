@@ -151,6 +151,13 @@ const Writing = () => (
               </Fade>
             ))}
           </CardContainer>
+          <Button
+            marginTop={3}
+            style={{ backgroundColor: '#F3F3F3', color: '#666666' }}
+            onClick={() => setShowMore(!showMore)}
+          >
+            {showMore ? 'Show less' : 'Show More'}
+          </Button>
           <SubHeader>Wellness</SubHeader>
           <CardContainer minWidth="200px">
             {healthPosts.map(({ Component, ...rest }) => (
@@ -159,13 +166,6 @@ const Writing = () => (
               </Fade>
             ))}
           </CardContainer>
-          <Button
-            marginTop={3}
-            style={{ backgroundColor: '#F3F3F3', color: '#666666' }}
-            onClick={() => setShowMore(!showMore)}
-          >
-            {showMore ? 'Show less' : 'Show More'}
-          </Button>
         </Section.Container>
       );
     }}

@@ -51,12 +51,6 @@ Job.propTypes = {
   location: PropTypes.string.isRequired,
   companyInfo: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  icon: PropTypes.shape({
-    image: PropTypes.shape({
-      src: PropTypes.string,
-    }),
-    title: PropTypes.string,
-  }).isRequired,
 };
 
 const Experience = () => (
@@ -69,7 +63,6 @@ const Experience = () => (
             experience {
               id
               title
-              company
               dates
               location
               companyInfo
@@ -82,7 +75,6 @@ const Experience = () => (
             eventsBoxes {
               id
               title
-              company
               dates
               location
               companyInfo

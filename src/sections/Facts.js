@@ -65,7 +65,7 @@ const Facts = () => (
     <StaticQuery
       query={graphql`
         query FactsQuery {
-          contentfulAbout {
+          about {
             funFacts {
               id
               header
@@ -78,7 +78,7 @@ const Facts = () => (
           }
         }
       `}
-      render={({ contentfulAbout }) => (
+      render={({ about }) => (
         <BoxContainer bg="tan">
           <Flex
             flexDirection="row"
@@ -86,7 +86,7 @@ const Facts = () => (
             justifyContent="space-between"
             width="100%"
           >
-            {contentfulAbout.funFacts.map((p, i) => (
+            {about.funFacts.map((p, i) => (
               <Fade bottom delay={i * 200} key={p.id}>
                 <Fact {...p} />
               </Fade>

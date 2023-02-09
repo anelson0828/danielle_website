@@ -22,7 +22,7 @@ const Education = () => (
         }
       `}
       render={data => {
-        const { education } = data.contentfulAbout;
+        const { education } = data.about;
         return (
           <Fade bottom>
             <ReactMarkdown

@@ -126,14 +126,14 @@ const Writing = () => (
         }
       }
     `}
-    render={({ contentfulAbout }) => {
+    render={({ about }) => {
       const techPosts = _.orderBy(
-        contentfulAbout.writing.map(w => parsePost(w)),
+        about.writing.map(w => parsePost(w)),
         'sortBy',
         'desc',
       );
       const healthPosts = _.orderBy(
-        contentfulAbout.healthWriting.map(w => parsePost(w)),
+        about.healthWriting.map(w => parsePost(w)),
         'sortBy',
         'desc',
       );

@@ -9,8 +9,6 @@ const client = contentful.createClient({
   accessToken: ACCESS_TOKEN,
 });
 
-// const getAboutEntry = entry => entry.sys.contentType.sys.id === 'about';
-
 const plugins = [
   'gatsby-plugin-react-helmet',
   {
@@ -42,15 +40,6 @@ const plugins = [
 ];
 
 module.exports = client.getEntries().then(() => {
-  // const { mediumUser } = entries.items.find(getAboutEntry).fields;
-
-  // plugins.push({
-  //   resolve: 'gatsby-source-medium',
-  //   options: {
-  //     username: mediumUser || '@medium',
-  //   },
-  // });
-
   if (ANALYTICS_ID) {
     plugins.push({
       resolve: 'gatsby-plugin-google-analytics',

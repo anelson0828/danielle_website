@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, Flex } from 'rebass';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import Fade from 'react-reveal/Fade';
@@ -20,66 +20,33 @@ const ProfilePicture = styled(Image)`
 const About = () => (
   <Section.Container id="about">
     <Section.Header name="About me" label="person" />
-    <StaticQuery
-      query={graphql`
-        query AboutMeQuery {
-          contentfulAbout {
-            aboutMe {
-              childMarkdownRemark {
-                rawMarkdownBody
-              }
-            }
-            profile {
-              title
-              image: resize(width: 650, quality: 100) {
-                src
-              }
-            }
-            socialLinks {
-              id
-              url
-              name
-              fontAwesomeIcon
-            }
-          }
-        }
-      `}
-      render={data => {
-        const { aboutMe, profile, socialLinks } = data.contentfulAbout;
-        return (
-          <Flex flexWrap="wrap" fontSize="18px">
-            <Box width={[1, 1, 4 / 6]}>
-              <Fade bottom>
-                <ReactMarkdown
-                  source={aboutMe.childMarkdownRemark.rawMarkdownBody}
-                  renderers={markdownRenderer}
-                />
-              </Fade>
-            </Box>
+    <Flex flexWrap="wrap" fontSize="18px">
+      <Box width={[1, 1, 4 / 6]}>
+        <Fade bottom>
+          <ReactMarkdown
+            source={contentfulAbout.aboutMe.childMarkdownRemark.rawMarkdownBody}
+            renderers={markdownRenderer}
+          />
+        </Fade>
+      </Box>
 
-            <Box
-              width={[1, 1, 2 / 6]}
-              style={{ maxWidth: '300px', margin: 'auto' }}
-            >
-              <Fade right>
-                <ProfilePicture
-                  src={profile.image.src}
-                  alt={profile.title}
-                  ml={[0, 0, 1]}
-                />
-              </Fade>
-              <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-                {socialLinks.map(({ id, ...rest }) => (
-                  <Box mx={3} fontSize={[4, 5, 5]} key={id}>
-                    <SocialLink {...rest} />
-                  </Box>
-                ))}
-              </Flex>
+      <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+        <Fade right>
+          <ProfilePicture
+            src={contentfulAbout.profile.image.src}
+            alt={contentfulAbout.profile.title}
+            ml={[0, 0, 1]}
+          />
+        </Fade>
+        <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+          {contentfulAbout.socialLinks.map(({ id, ...rest }) => (
+            <Box mx={3} fontSize={[4, 5, 5]} key={id}>
+              <SocialLink {...rest} />
             </Box>
-          </Flex>
-        );
-      }}
-    />
+          ))}
+        </Flex>
+      </Box>
+    </Flex>
   </Section.Container>
 );
 

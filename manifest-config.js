@@ -1,8 +1,8 @@
 const colors = require('./colors');
 
 module.exports = {
-  name: 'Danielle Nelson',
-  short_name: 'Danielle Nelson',
+  name: 'Danielle Syvertsen',
+  short_name: 'Danielle Syvertsen',
   start_url: '/',
   background_color: colors.background,
   theme_color: colors.darkGrey,

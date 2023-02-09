@@ -22,7 +22,7 @@ const Welcome = () => (
         }
       `}
       render={data => {
-        const { blurb } = data.contentfulAbout;
+        const { blurb } = data.about;
         return (
           <Box width={[1, 1, 4 / 6]}>
             <Fade bottom>

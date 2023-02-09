@@ -22,7 +22,7 @@ const LandingPage = () => (
         }
       `}
       render={data => {
-        const { description, blurb } = data.contentfulAbout;
+        const { description, blurb } = data.about;
 
         return (
           <div

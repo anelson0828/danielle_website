@@ -186,6 +186,16 @@
           "omitted": false
         },
         {
+          "id": "blurb",
+          "name": "Blurb",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
           "id": "description",
           "name": "Description",
           "type": "Symbol",
@@ -259,6 +269,121 @@
             "validations": [
               {
                 "linkContentType": ["project"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "funFacts",
+          "name": "Fun Facts",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["box"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "education",
+          "name": "Education",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "eventsBoxes",
+          "name": "Events Boxes",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["job"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "events",
+          "name": "Events",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "experience",
+          "name": "Experience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["job"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "writing",
+          "name": "Tech Writing",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["writing"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "healthWriting",
+          "name": "Health Writing",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["writing"]
               }
             ],
             "linkType": "Entry"

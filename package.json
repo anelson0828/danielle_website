@@ -40,7 +40,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^2.0.52",
-    "gatsby-transformer-remark": "^4.6",
+    "gatsby-transformer-remark": "^5.25",
     "inquirer": "^6.2.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.6.2",
